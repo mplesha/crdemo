@@ -8,8 +8,7 @@ before_install:
   - make && make install PREFIX=~/git-crypt
   - export PATH=~/git-crypt:$PATH
   - echo $GIT_CRYPT_KEY > ~/git-crypt/base64-key
-  - cat ~/git-crypt/base64-key
-  - base64 -d ~/git-crypt/base64-key ~/git-crypt/crypt-key
+  - base64 -d ~/git-crypt/base64-key > ~/git-crypt/crypt-key
 script:
   - echo 'Hi'
   - cd $TRAVIS_BUILD_DIR
