@@ -4,7 +4,7 @@ node_js:
 before_install:
   - git clone https://github.com/AGWA/git-crypt.git
   - cd git-crypt
-  - make && make install
+  - make && sudo make install
 script:
   - echo "Hi"
   - ls ./
