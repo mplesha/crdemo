@@ -5,7 +5,7 @@ before_install:
   - git clone https://github.com/AGWA/git-crypt.git
   - cd git-crypt
   - make && make install PREFIX=~/git-crypt
-  - EXPORT PATH=~/git-crypt:$PATH
+  - export PATH=~/git-crypt:$PATH
 script:
   - echo "Hi"
   - ls ./
