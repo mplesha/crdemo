@@ -8,7 +8,4 @@ before_install:
   - make && make install PREFIX=~/git-crypt
   - export PATH=~/git-crypt:$PATH
 script:
-  - echo $PATH
-  - ls ./
-  - ls ../
-  - git-crypt --help
+  - printenv
