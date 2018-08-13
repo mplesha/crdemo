@@ -1,15 +1,15 @@
-language: node_js
-node_js:
-  - "8.11.3"
+sudo: required
+
+language: ruby
+
+services:
+- docker
+
 before_install:
-  - cd ~/
-  - git clone https://github.com/AGWA/git-crypt.git
-  - cd git-crypt
-  - make && make install PREFIX=~/git-crypt
-  - export PATH=~/git-crypt:$PATH
-  - echo $GIT_CRYPT_KEY | base64 -d > ~/git-crypt/crypt-key
-  - cd $TRAVIS_BUILD_DIR
-  - git-crypt unlock ~/git-crypt/crypt-key
+- docker pull carlad/sinatra
+- docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
+- docker ps -a
+- docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
+
 script:
-  - echo 'Hi'
-  - cat data.db
+- bundle exec rake test
