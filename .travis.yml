@@ -3,4 +3,6 @@ addons:
     packages:
       - docker-ce
 script:
-  - docker --version
+  - docker pull nginx
+  - docker run nginx
+  - docker ps
