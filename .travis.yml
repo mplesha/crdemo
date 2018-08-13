@@ -4,5 +4,4 @@ addons:
       - docker-ce
 script:
   - docker pull nginx
-  - docker run nginx
   - docker ps
